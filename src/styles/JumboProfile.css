@@ -1,16 +1,34 @@
 #jumbo {
+  padding: 0;
   position: relative;
   background-color: white;
   height: 562.5px;
 }
 
-#background-mig {
+#profile-img {
+  position: absolute;
+  left: 30px;
+  width: 160px;
+  height: 160px;
+  transform: translateY(65%);
+  background-image: url("../assets/user.svg");
+  border: 3px solid white;
+  border-radius: 90%;
+  /* margin-bottom: 2rem; */
+}
+
+#profile-img:hover {
+  cursor: pointer;
+}
+
+#background-img {
   height: 33%;
-  color: #a0b4b7;
+  width: 100%;
+  object-fit: cover;
 }
 
 #info-wrapper {
-  height: 67%;
+  transform: translateY(65%);
 }
 
 #dropdown-wrapper {
