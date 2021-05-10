@@ -6,7 +6,7 @@ class JumboProfile extends React.Component {
   render() {
     return (
       <Jumbotron id="jumbo">
-        <img id="background-img" />
+        <img src="./assets/card-bg.svg" alt="" />
         <div id="info-wrapper">
           <h3>Antoni Stoilkov</h3>
           <p>

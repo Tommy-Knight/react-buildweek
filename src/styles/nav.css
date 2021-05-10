@@ -1,0 +1,35 @@
+
+.navbar {
+	top: 0;
+	position: fixed;
+	height: 70px;
+	width: 100%;
+	background-color: white;
+    border-bottom: 1px solid lightgrey;
+    flex-wrap: nowrap!important;
+}
+.navicons>button {
+	border: none;
+	background-color: white;
+	color: grey;
+  justify-content:right!important;
+}
+.navbtn:hover {
+	color: black;
+    box-shadow: inset 0 -3px 0 0 black;
+}
+.navsearch{
+  border:none;
+  background-color: #eef3f8;
+}
+.navsearch:focus, textarea:focus{
+  border:none;
+}
+.navlogo{
+  margin-right: 20px;
+  color: rgb(74, 99, 168);
+  display: inline-block;
+}
+.navleft{
+    justify-content:left!important;
+}
