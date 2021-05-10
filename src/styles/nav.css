@@ -6,19 +6,19 @@
 	width: 100%;
 	background-color: white;
     border-bottom: 1px solid lightgrey;
-    flex-wrap: nowrap!important;
+  font-size: 11px;
 }
 .navicons>button {
 	border: none;
 	background-color: white;
 	color: grey;
-  justify-content:right!important;
 }
 .navbtn:hover {
 	color: black;
     box-shadow: inset 0 -3px 0 0 black;
 }
 .navsearch{
+  font-size: 16px;
   border:none;
   background-color: #eef3f8;
 }
@@ -26,10 +26,11 @@
   border:none;
 }
 .navlogo{
+  margin-left: 50px;
   margin-right: 20px;
   color: rgb(74, 99, 168);
   display: inline-block;
 }
-.navleft{
-    justify-content:left!important;
+rea:focus, input:focus{
+    outline: none;
 }

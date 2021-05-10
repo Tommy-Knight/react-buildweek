@@ -39,7 +39,7 @@ export default class Nav extends Component {
 						placeholder="Search"
 					></input>
 				</div>
-				<div className="navicons mt-0">
+				<div className="navicons">
 					<button className="navbtn">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
