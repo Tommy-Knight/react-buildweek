@@ -1,13 +1,13 @@
 import JumboProfile from "./components/JumboProfile";
 import { Col, Container, Row } from "react-bootstrap";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import React from "react";
+import Nav from "./components/Nav";
 
 function App() {
   return (
     <Router>
-      {/* <Nav /> */}
-      <Container id="main">
+      <Nav />
+      <Container>
         <Row>
           <Col md={8}>
             <JumboProfile />
