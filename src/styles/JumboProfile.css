@@ -1,0 +1,33 @@
+#jumbo {
+  position: relative;
+  background-color: white;
+  height: 562.5px;
+}
+
+#background-mig {
+  height: 33%;
+  color: #a0b4b7;
+}
+
+#info-wrapper {
+  height: 67%;
+}
+
+#dropdown-wrapper {
+  flex-direction: row;
+}
+
+#dropdown-open {
+  height: 32px;
+  background-color: rgb(10, 102, 194);
+  border-radius: 16px;
+  margin-right: 1rem;
+}
+#dropdown-add {
+  height: 32px;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 16px;
+  color: #000;
+  margin-right: 1rem;
+}
