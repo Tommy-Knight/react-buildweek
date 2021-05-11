@@ -10,7 +10,7 @@ class JumboProfile extends React.Component {
         <img
           id="background-img"
           className="hover"
-          src="https://static-exp1.licdn.com/sc/h/9e0ckeb27mzi70ne80f4hv7il"
+          src={this.props.user.image}
           alt="profile-background"
         />
         <div id="info-wrapper">
