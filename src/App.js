@@ -7,34 +7,13 @@ import fetchUser from "./services/fetchUser";
 
 class App extends React.Component {
   state = {
-    user: null,
+    user: {},
   };
   componentDidMount = async () => {
-    // const getUser = await fetchUser();
-    // this.setState({user: getUser});
-    const headers = {
-      // "Content-Type": "application/json",
-      Authorization: "Bearer " + process.env.REACT_APP_TOKEN,
-    };
-
-    try {
-      const response = await fetch(
-        "https://striveschool-api.herokuapp.com/api/profile/me",
-        {
-          headers,
-        }
-      );
-      console.log(response);
-      const user = await response.json();
-      console.log(user);
-      this.setState({ user: user });
-      return user;
-    } catch (error) {
-      alert("You have an error:", error);
-    }
+    const getUser = await fetchUser();
+    this.setState({ user: getUser });
   };
   render() {
-    console.log(process.env.REACT_APP_TOKEN);
     return (
       <Router>
         <Nav />

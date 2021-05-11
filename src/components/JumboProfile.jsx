@@ -6,19 +6,19 @@ class JumboProfile extends React.Component {
   render() {
     return (
       <Jumbotron id="jumbo">
-        <div id="profile-img"></div>
         <img
-          id="background-img"
+          id="profile-img"
           className="hover"
           src={this.props.user.image}
-          alt="profile-background"
+          alt="profile-image"
         />
+
+        <div id="background-img"></div>
+
         <div id="info-wrapper">
           <h3>Antoni Stoilkov</h3>
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet
-            exercitationem quam doloremque.
-          </p>
+          <p>{this.props.user.area}</p>
+          <p>{this.props.user.title}</p>
           <Row>
             <Col id="dropdown-wrapper" md={2} className="d-flex">
               <Dropdown>
