@@ -13,3 +13,7 @@
 .userImg {
   border-radius: 50px;
 }
+.rounded-pill {
+  height: 40px;
+  width: 100px;
+}
