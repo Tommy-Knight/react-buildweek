@@ -16,7 +16,9 @@ class JumboProfile extends React.Component {
         <div id="background-img"></div>
 
         <div id="info-wrapper">
-          <h3>Antoni Stoilkov</h3>
+          <h3>
+            {this.props.user.name} {this.props.user.surname}
+          </h3>
           <p>{this.props.user.area}</p>
           <p>{this.props.user.title}</p>
           <Row>
