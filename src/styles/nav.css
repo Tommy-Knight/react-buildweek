@@ -9,28 +9,17 @@
 }
 .navicons {
 	border-right: 1px solid lightgrey;
-  display: inline-block;
+	display: inline-block;
 }
-.allnavicons{
-  margin-bottom: 0px;
+.allnavicons {
+	margin-bottom: 0px;
 }
 .navbtn {
 	border: none;
 	background-color: white;
 	color: grey;
 	margin-right: 18px;
-  padding-bottom: 6px;
-}
-.mebtn{
-	border: none;
-	background-color: white;
-	color: grey;
-	margin-right: 8px;
-	margin-top: 5px;
-	padding-bottom: 4px;
-}
-.mebtn:hover{
-  	color: black;
+	padding-bottom: 6px;
 }
 .navbtn:hover {
 	color: black;
@@ -62,40 +51,89 @@ textarea:focus {
 input:focus {
 	outline: none;
 }
-.navright{
-  display: inline-block;
-  margin-left: 12px;
-}
-.usericon{
-  border-radius: 90px;
-  overflow: hidden;
-  margin: 0px;
-}
-.dropdown {
-  position: relative;
-  display: inline-block;
+.navright {
+	display: inline-block;
+	margin-left: 12px;
 }
 
+.dropdown {
+	border: none;
+	background-color: white;
+	color: grey;
+}
+.dropdown:hover {
+	color: black;
+}
 .dropdown-content {
-  display: none;
-  position: absolute;
-  justify-content: flex-start;
-  right: -8px;
-  margin-top: 5px;
-  background-color: #f9f9f9;
-  min-width: 260px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  border-radius: 8px 2px 8px 8px;
-  z-index: 1;
+	font-size: 13px;
+	display: none;
+	position: absolute;
+	justify-content: flex-start;
+	right: -8px;
+	top: 33px;
+	padding-bottom: 8px;
+	padding-left: 15px;
+	background-color: #f9f9f9;
+	min-width: 300px;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	border-radius: 8px 2px 8px 8px;
+	z-index: 1;
 }
-.dropdown:hover .dropdown-content {
-  display: block;
+.dropdown:focus .dropdown-content {
+	display: block;
 }
-.dropdownUserimage{
+.dropdownUserimage {
 	border-radius: 45px;
-	margin: 5px;
+	position: fixed;
+	margin-top: 30px;
+	margin-left: 35px;
+}	
+.dropdownuserinfo {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-left: 80px;
+
+	display: inline-block;
 }
-.dropdown-content>div>a{
-	color: grey!important;
-	margin-left: 5px;
+.dropdownbtn {
+	color: rgb(66, 66, 224);
+	background: none;
+	border: 2px solid rgb(66, 66, 224);
+	border-radius: 15px;
+	width: 250px;
+	font-size: 15px;
+	justify-content: center;
+	margin-left: 10px;
+}
+.dropdownbtn:hover {
+	background-color: #acbfd3;
+}
+.dropdown-content > a {
+	color: grey !important;
+}
+.mebtn {
+	width: 20px;
+}
+.mebtn > div > img {
+	border-radius: 45px;
+	position: absolute;
+	left: -5px;
+	top: -10px;
+}
+.mebtn > div > p {
+	position: absolute;
+	left: -7px;
+	top: 10px;
+}
+@media only screen and (max-width: 600px) {
+	.allnavicons{
+		display: block;
+		overflow: hidden;
+	}
+	.workbtn{
+		display:none;
+	}
+	.navbtn{
+		margin-right: 1px;
+	}
 }
