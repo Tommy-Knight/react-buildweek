@@ -4,34 +4,19 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Nav from './components/Nav';
 import React from 'react';
 import fetchUser from './services/fetchUser';
+import Sidebar from './components/Sidebar';
+import getUsers from './services/getUsers';
 
 class App extends React.Component {
   state = {
     user: null,
+    listOfUsers: null,
   };
   componentDidMount = async () => {
-    // const getUser = await fetchUser();
-    // this.setState({user: getUser});
-    const headers = {
-      // "Content-Type": "application/json",
-      Authorization: 'Bearer ' + process.env.REACT_APP_TOKEN,
-    };
-
-    try {
-      const response = await fetch(
-        'https://striveschool-api.herokuapp.com/api/profile/me',
-        {
-          headers,
-        }
-      );
-      console.log(response);
-      const user = await response.json();
-      console.log(user);
-      this.setState({ user: user });
-      return user;
-    } catch (error) {
-      alert('You have an error:', error);
-    }
+    const getUser = await fetchUser();
+    const listOfUsers = await getUsers();
+    this.setState({ user: getUser });
+    this.setState({ listOfUsers: listOfUsers });
   };
   render() {
     console.log(process.env.REACT_APP_TOKEN);
@@ -43,7 +28,9 @@ class App extends React.Component {
             <Col md={8}>
               <JumboProfile user={this.state.user} />
             </Col>
-            <Col md={4}></Col>
+            <Col md={4}>
+              <Sidebar listOfUsers={this.state.listOfUsers} />
+            </Col>
           </Row>
         </Container>
       </Router>

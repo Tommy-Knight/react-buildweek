@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { ListGroup, Card } from 'react-bootstrap';
 
-class sidebar extends Component {
+class Sidebar extends Component {
   render() {
+    console.log(this.props.listOfUsers);
     return (
       <div>
-        <Card style={{ width: '18rem' }}>
-          <Card.Header>People you may know</Card.Header>
+        <Card style={{}}>
+          <Card.Header className="text-center">People you may know</Card.Header>
           <ListGroup variant="flush">
             <ListGroup.Item className="d-flex my-1 px-auto">
               <img
@@ -28,4 +29,4 @@ class sidebar extends Component {
   }
 }
 
-export default sidebar;
+export default Sidebar;
