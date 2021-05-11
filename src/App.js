@@ -9,7 +9,7 @@ import getUsers from './services/getUsers';
 
 class App extends React.Component {
   state = {
-    user: null,
+    user: {},
     listOfUsers: null,
   };
   componentDidMount = async () => {
@@ -19,7 +19,6 @@ class App extends React.Component {
     this.setState({ listOfUsers: listOfUsers });
   };
   render() {
-    console.log(process.env.REACT_APP_TOKEN);
     return (
       <Router>
         <Nav />

@@ -12,7 +12,7 @@
   width: 160px;
   height: 160px;
   transform: translateY(65%);
-  background-image: url("../assets/user.svg");
+  /* background-image: url("../assets/user.svg"); */
   border: 3px solid white;
   border-radius: 90%;
   /* margin-bottom: 2rem; */
@@ -23,6 +23,7 @@
 }
 
 #background-img {
+  background-image: url("https://static-exp1.licdn.com/sc/h/9e0ckeb27mzi70ne80f4hv7il");
   height: 33%;
   width: 100%;
   object-fit: cover;
