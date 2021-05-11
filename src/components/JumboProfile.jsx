@@ -1,6 +1,6 @@
-import React from "react";
-import { Col, Dropdown, Jumbotron, Row } from "react-bootstrap";
-import "../styles/JumboProfile.css";
+import React from 'react';
+import { Col, Dropdown, Jumbotron, Row } from 'react-bootstrap';
+import '../styles/JumboProfile.css';
 
 class JumboProfile extends React.Component {
   render() {
