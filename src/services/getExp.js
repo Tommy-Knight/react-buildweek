@@ -1,20 +1,22 @@
-const getUsers = async () => {
+const getExp = async (userID) => {
   const headers = {
     Authorization: "Bearer " + process.env.REACT_APP_TOKEN,
   };
 
   try {
     const response = await fetch(
-      "https://striveschool-api.herokuapp.com/api/profile/",
+      "https://striveschool-api.herokuapp.com/api/profile/" +
+        { userID } +
+        "/experiences",
       {
         headers,
       }
     );
     console.log(response);
     if (response.ok) {
-      const listOfUsers = await response.json();
-      console.log(listOfUsers);
-      return listOfUsers;
+      const myExp = await response.json();
+      console.log(myExp);
+      return myExp;
     } else {
       alert("Error in response");
     }
@@ -23,4 +25,4 @@ const getUsers = async () => {
   }
 };
 
-export default getUsers;
+export default getExp;
