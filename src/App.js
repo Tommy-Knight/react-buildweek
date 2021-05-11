@@ -10,13 +10,14 @@ import getUsers from "./services/getUsers";
 class App extends React.Component {
   state = {
     user: {},
-    listOfUsers: null,
+    listOfUsers: [],
   };
   componentDidMount = async () => {
     const getUser = await fetchUser();
     const listOfUsers = await getUsers();
     this.setState({ user: getUser });
-    this.setState({ listOfUsers: listOfUsers });
+    const listOfUsers = await getUsers();
+    this.setState({ listOfUsers });
   };
   render() {
     return (
