@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import { ListGroup, Card, Button } from 'react-bootstrap';
-import '../styles/sidebar.css';
+import React, { Component } from "react";
+import { ListGroup, Card, Button } from "react-bootstrap";
+import "../styles/sidebar.css";
 
 class Sidebar extends Component {
   render() {
-    console.log(this.props.listOfUsers);
+    // console.log(this.props.listOfUsers);
     return (
       <div>
         <Card id="CardSidebar" style={{}}>
@@ -29,7 +29,7 @@ class Sidebar extends Component {
                     className="rounded-pill mr-auto"
                   >
                     <b>Connect</b>
-                  </Button>{' '}
+                  </Button>{" "}
                 </div>
               </ListGroup.Item>
             </ListGroup>

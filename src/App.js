@@ -2,12 +2,12 @@ import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Nav from "./components/Nav";
-import Footer from "./components/Footer";
 import JumboProfile from "./components/JumboProfile";
 import Sidebar from "./components/Sidebar";
+import Experiences from "./components/Experiences";
+import Footer from "./components/Footer";
 import fetchUser from "./services/fetchUser";
 import getUsers from "./services/getUsers";
-import getExp from "./services/getExp";
 
 class App extends React.Component {
   state = {
@@ -30,14 +30,14 @@ class App extends React.Component {
           <Row>
             <Col md={8}>
               <JumboProfile user={this.state.user} />
-              {/* <Experiences userID={this.state.user._id} /> */}
+              <Experiences userID={this.state.user._id} />
             </Col>
             <Col md={4}>
               <Sidebar listOfUsers={this.state.listOfUsers} />
             </Col>
           </Row>
         </Container>
-        <Footer/>
+        <Footer />
       </Router>
     );
   }

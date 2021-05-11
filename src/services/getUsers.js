@@ -10,10 +10,10 @@ const getUsers = async () => {
         headers,
       }
     );
-    console.log(response);
+    // console.log(response);
     if (response.ok) {
       const listOfUsers = await response.json();
-      console.log(listOfUsers);
+      // console.log(listOfUsers);
       return listOfUsers;
     } else {
       alert("Error in response");

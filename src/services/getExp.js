@@ -4,6 +4,7 @@ const getExp = async (userID) => {
   };
 
   try {
+    console.log("my USERID IN GETEXP", userID);
     const response = await fetch(
       "https://striveschool-api.herokuapp.com/api/profile/" +
         { userID } +
@@ -14,14 +15,14 @@ const getExp = async (userID) => {
     );
     console.log(response);
     if (response.ok) {
-      const myExp = await response.json();
-      console.log(myExp);
-      return myExp;
+      const listOfExp = await response.json();
+      console.log(listOfExp);
+      return listOfExp;
     } else {
       alert("Error in response");
     }
   } catch (error) {
-    alert("You have an error:", error);
+    alert("You have an error in sending experience request:", error);
   }
 };
 
