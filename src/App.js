@@ -14,10 +14,10 @@ class App extends React.Component {
   };
   componentDidMount = async () => {
     const getUser = await fetchUser();
-    const listOfUsers = await getUsers();
+
     this.setState({ user: getUser });
-    const listOfUsers = await getUsers();
-    this.setState({ listOfUsers });
+    const getListOfUsers = await getUsers();
+    this.setState({ listOfUsers: getListOfUsers });
   };
   render() {
     return (
