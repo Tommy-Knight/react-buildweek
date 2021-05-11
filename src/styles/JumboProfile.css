@@ -1,0 +1,52 @@
+#jumbo {
+  transform: translateY();
+  padding: 0;
+  position: relative;
+  background-color: white;
+  height: 562.5px;
+}
+
+#profile-img {
+  position: absolute;
+  left: 30px;
+  width: 160px;
+  height: 160px;
+  transform: translateY(65%);
+  background-image: url("../assets/user.svg");
+  border: 3px solid white;
+  border-radius: 90%;
+  /* margin-bottom: 2rem; */
+}
+
+#profile-img:hover {
+  cursor: pointer;
+}
+
+#background-img {
+  height: 33%;
+  width: 100%;
+  object-fit: cover;
+}
+
+#info-wrapper {
+  transform: translateY(65%);
+}
+
+#dropdown-wrapper {
+  flex-direction: row;
+}
+
+#dropdown-open {
+  height: 32px;
+  background-color: rgb(10, 102, 194);
+  border-radius: 16px;
+  margin-right: 1rem;
+}
+#dropdown-add {
+  height: 32px;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 16px;
+  color: #000;
+  margin-right: 1rem;
+}
