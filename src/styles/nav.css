@@ -79,16 +79,23 @@ input:focus {
 .dropdown-content {
   display: none;
   position: absolute;
+  justify-content: flex-start;
   right: -8px;
   margin-top: 5px;
   background-color: #f9f9f9;
-  min-width: 160px;
+  min-width: 260px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   border-radius: 8px 2px 8px 8px;
-  padding: 12px 16px;
   z-index: 1;
 }
-
 .dropdown:hover .dropdown-content {
   display: block;
+}
+.dropdownUserimage{
+	border-radius: 45px;
+	margin: 5px;
+}
+.dropdown-content>div>a{
+	color: grey!important;
+	margin-left: 5px;
 }

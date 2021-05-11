@@ -132,7 +132,7 @@ export default class Nav extends Component {
 								</svg>
 							</div>
 							Me ▼
-							<div class="dropdown-content">
+							<div class="dropdown-content text-left">
 								<div className="">
 									<img
 										src={this.props.user.image}
@@ -142,12 +142,23 @@ export default class Nav extends Component {
 									/>
 									{this.props.user.username}
 									<br />
-									{this.props.user.bio}
+									{this.props.user.bio}<br/>
+									<button>View Profile</button>
 									<hr />
-									<a href="/item">
-										<h5>Account</h5>
-									</a>
+
+									<h5>Account</h5>
+									<a href="/settings">Settings & Privacy</a>
 									<br />
+									<a href="/help">Help</a>
+									<br />
+									<a href="/languages">Languages</a>
+									<hr />
+									<h5>Manage</h5>
+									<a href="/settings">Posts & Activity</a>
+									<br />
+									<a href="/settings">Job Posting Account</a>
+									<hr />
+									<a href="/settings">Sign Out</a>
 								</div>
 							</div>
 						</button>
