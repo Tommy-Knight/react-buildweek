@@ -1,0 +1,15 @@
+#CardSidebar {
+  /* white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; */
+  border: none;
+  border-radius: 10px;
+}
+
+#CardSidebar > div.mr-auto.card-header {
+  border: none;
+  background: none;
+}
+.userImg {
+  border-radius: 50px;
+}
