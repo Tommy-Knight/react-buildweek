@@ -21,20 +21,20 @@ class App extends React.Component {
   };
   render() {
     return (
-      <Router>
-        <Nav />
-        <Container>
-          <Row>
-            <Col md={8}>
-              <JumboProfile user={this.state.user} />
-            </Col>
-            <Col md={4}>
-              <Sidebar listOfUsers={this.state.listOfUsers} />
-            </Col>
-          </Row>
-        </Container>
-      </Router>
-    );
+			<Router>
+				<Nav user={this.state.user} />
+				<Container>
+					<Row>
+						<Col md={8}>
+							<JumboProfile user={this.state.user} />
+						</Col>
+						<Col md={4}>
+							<Sidebar listOfUsers={this.state.listOfUsers} />
+						</Col>
+					</Row>
+				</Container>
+			</Router>
+		)
   }
 }
 
