@@ -5,8 +5,8 @@ export default class Nav extends Component {
 	state = {
 		search: "",
 	}
-
 	render() {
+		console.log(process.env.REACT_APP_TOKEN)
 		return (
 			<div className="navbar">
 				<div className="navleft mx-auto">
@@ -46,19 +46,21 @@ export default class Nav extends Component {
 				</div>
 				<div className="allnavicons mx-auto">
 					<div className="navicons">
-						<button className="navbtn">
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								height="24"
-								width="24"
-								fill="currentColor"
-							>
-								<path d="m23 9v2h-2v7c0 1.7-1.3 3-3 3h-4v-6h-4v6h-4c-1.7 0-3-1.3-3-3v-7h-2v-2l11-7z"></path>
-								<path d="m20 2h-3v3.2l3 1.9z"></path>
-							</svg>
-							<br />
-							Home
-						</button>
+						<a href="/">
+							<button className="navbtn">
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									height="24"
+									width="24"
+									fill="currentColor"
+								>
+									<path d="m23 9v2h-2v7c0 1.7-1.3 3-3 3h-4v-6h-4v6h-4c-1.7 0-3-1.3-3-3v-7h-2v-2l11-7z"></path>
+									<path d="m20 2h-3v3.2l3 1.9z"></path>
+								</svg>
+								<br />
+								Home
+							</button>
+						</a>
 						<button className="navbtn">
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
@@ -114,7 +116,6 @@ export default class Nav extends Component {
 									viewBox="0 0 128 128"
 									data-supported-dps="128x128"
 								>
-									<rect x="120" width="100" height="100" rx="15" />
 									<path fill="#e9e5de" d="M0 0h128v128H0z" />
 									<path
 										d="M88.41 84.67a32 32 0 10-48.82 0 66.13 66.13 0 0148.82 0z"
@@ -132,10 +133,22 @@ export default class Nav extends Component {
 							</div>
 							Me ▼
 							<div class="dropdown-content">
-								<p>Hello World!</p>
-								<hr/>
-								<a href="/item"><h5>Account</h5></a>
-								<br/>
+								<div className="">
+									<img
+										src={this.props.user.image}
+										className="dropdownUserimage"
+										width="50px"
+										alt="profile"
+									/>
+									{this.props.user.username}
+									<br />
+									{this.props.user.bio}
+									<hr />
+									<a href="/item">
+										<h5>Account</h5>
+									</a>
+									<br />
+								</div>
 							</div>
 						</button>
 					</div>
