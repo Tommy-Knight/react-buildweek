@@ -80,7 +80,7 @@ input:focus {
 	border-radius: 8px 2px 8px 8px;
 	z-index: 1;
 }
-.dropdown:hover .dropdown-content {
+.dropdown:focus .dropdown-content {
 	display: block;
 }
 
