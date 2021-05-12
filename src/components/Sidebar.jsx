@@ -1,18 +1,19 @@
-import React, { Component } from "react"
-import { ListGroup, Card, Button } from "react-bootstrap"
-import "../styles/sidebar.css"
+import React, { Component } from "react";
+import { ListGroup, Card, Button } from "react-bootstrap";
+import "../styles/sidebar.css";
 
 class Sidebar extends Component {
-	randomnumber = Math.floor(Math.random() * 200) + 1
 
-	render() {
-		// console.log(this.props.listOfUsers);
-		return (
+  randomnumber = Math.floor(Math.random() * 100) + 1
+
+  render() {
+    // console.log(this.props.listOfUsers);
+    return (
 			<div>
 				<Card id="CardSidebar" style={{}}>
 					<Card.Header className="mr-auto">People you may know</Card.Header>
 					{this.props.listOfUsers
-						.slice(this.randomnumber, this.randomnumber + 5)
+						.slice(this.randomnumber, this.randomnumber+5)
 						.map((item) => (
 							<ListGroup variant="flush">
 								<ListGroup.Item className="d-flex  ">
@@ -41,7 +42,7 @@ class Sidebar extends Component {
 				</Card>
 			</div>
 		)
-	}
+  }
 }
 
-export default Sidebar
+export default Sidebar;
