@@ -9,8 +9,9 @@ class Experiences extends Component {
     myExp: null,
     isModalVis: false,
   };
-  handleAddExp = () => {
-    this.setState({ isModalVis: true });
+  handleAddExp = async () => {
+    const visOn = await this.setState({ isModalVis: true });
+    console.log(this.state);
   };
   handleEditExp = () => {
     alert("Edit");
@@ -39,7 +40,8 @@ class Experiences extends Component {
             <Row className="muted">
               <h3>Experience</h3>
             </Row>
-            <ModalExperience />
+            {this.state.isModalVis && <ModalExperience />}
+
             <Row>
               <Col md={1}>
                 <img
