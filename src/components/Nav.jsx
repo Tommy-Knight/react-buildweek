@@ -1,29 +1,33 @@
-import React, { Component } from "react"
-import "../styles/nav.css"
+import React, { Component } from "react";
+import "../styles/nav.css";
 
 export default class Nav extends Component {
 	state = {
 		search: "",
 	}
+
 	render() {
 		console.log(process.env.REACT_APP_TOKEN)
 		return (
 			<div className="navbar">
 				<div className="navleft mx-auto">
 					<div className="navlogo">
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							width="34"
-							height="34"
-							viewBox="0 0 34 34"
-						>
-							<g>
-								<path
-									d="M34,2.5v29A2.5,2.5,0,0,1,31.5,34H2.5A2.5,2.5,0,0,1,0,31.5V2.5A2.5,2.5,0,0,1,2.5,0h29A2.5,2.5,0,0,1,34,2.5ZM10,13H5V29h5Zm.45-5.5A2.88,2.88,0,0,0,7.59,4.6H7.5a2.9,2.9,0,0,0,0,5.8h0a2.88,2.88,0,0,0,2.95-2.81ZM29,19.28c0-4.81-3.06-6.68-6.1-6.68a5.7,5.7,0,0,0-5.06,2.58H17.7V13H13V29h5V20.49a3.32,3.32,0,0,1,3-3.58h.19c1.59,0,2.77,1,2.77,3.52V29h5Z"
-									fill="currentColor"
-								></path>
-							</g>
-						</svg>
+						<a href="/feed">
+							{" "}
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								width="34"
+								height="34"
+								viewBox="0 0 34 34"
+							>
+								<g>
+									<path
+										d="M34,2.5v29A2.5,2.5,0,0,1,31.5,34H2.5A2.5,2.5,0,0,1,0,31.5V2.5A2.5,2.5,0,0,1,2.5,0h29A2.5,2.5,0,0,1,34,2.5ZM10,13H5V29h5Zm.45-5.5A2.88,2.88,0,0,0,7.59,4.6H7.5a2.9,2.9,0,0,0,0,5.8h0a2.88,2.88,0,0,0,2.95-2.81ZM29,19.28c0-4.81-3.06-6.68-6.1-6.68a5.7,5.7,0,0,0-5.06,2.58H17.7V13H13V29h5V20.49a3.32,3.32,0,0,1,3-3.58h.19c1.59,0,2.77,1,2.77,3.52V29h5Z"
+										fill="currentColor"
+									></path>
+								</g>
+							</svg>
+						</a>
 					</div>
 					<div className="navsearch">
 						<svg
@@ -61,18 +65,20 @@ export default class Nav extends Component {
 								Home
 							</button>
 						</a>
-						<button className="navbtn">
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								height="24"
-								width="24"
-								fill="currentColor"
-							>
-								<path d="m12 16v6h-9v-6c0-1.7 1.3-3 3-3h3c1.7 0 3 1.3 3 3zm5.5-3c1.9 0 3.5-1.6 3.5-3.5s-1.6-3.5-3.5-3.5-3.5 1.6-3.5 3.5 1.6 3.5 3.5 3.5zm1 2h-2c-1.4 0-2.5 1.1-2.5 2.5v4.5h7v-4.5c0-1.4-1.1-2.5-2.5-2.5zm-11-13c-2.5 0-4.5 2-4.5 4.5s2 4.5 4.5 4.5 4.5-2 4.5-4.5-2-4.5-4.5-4.5z"></path>
-							</svg>
-							<br />
-							My Network
-						</button>
+						<a href="/feed">
+							<button className="navbtn" href="/feed">
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									height="24"
+									width="24"
+									fill="currentColor"
+								>
+									<path d="m12 16v6h-9v-6c0-1.7 1.3-3 3-3h3c1.7 0 3 1.3 3 3zm5.5-3c1.9 0 3.5-1.6 3.5-3.5s-1.6-3.5-3.5-3.5-3.5 1.6-3.5 3.5 1.6 3.5 3.5 3.5zm1 2h-2c-1.4 0-2.5 1.1-2.5 2.5v4.5h7v-4.5c0-1.4-1.1-2.5-2.5-2.5zm-11-13c-2.5 0-4.5 2-4.5 4.5s2 4.5 4.5 4.5 4.5-2 4.5-4.5-2-4.5-4.5-4.5z"></path>
+								</svg>
+								<br />
+								My Network
+							</button>
+						</a>
 						<button className="navbtn">
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
@@ -109,41 +115,27 @@ export default class Nav extends Component {
 							<br />
 							Notifications
 						</button>
-						<button className=" mebtn dropdown">
-							<div className="usericon">
-								<svg
-									xmlns="http://www.w3.org/2000/svg"
-									viewBox="0 0 128 128"
-									data-supported-dps="128x128"
-								>
-									<path fill="#e9e5de" d="M0 0h128v128H0z" />
-									<path
-										d="M88.41 84.67a32 32 0 10-48.82 0 66.13 66.13 0 0148.82 0z"
-										fill="#788fa5"
-									/>
-									<path
-										d="M88.41 84.67a32 32 0 01-48.82 0A66.79 66.79 0 000 128h128a66.79 66.79 0 00-39.59-43.33z"
-										fill="#9eb3c8"
-									/>
-									<path
-										d="M64 96a31.93 31.93 0 0024.41-11.33 66.13 66.13 0 00-48.82 0A31.93 31.93 0 0064 96z"
-										fill="#56687a"
-									/>
-								</svg>
-							</div>
-							Me ▼
-							<div class="dropdown-content text-left">
-								<div className="">
+						<button className="  dropdown">
+							<div className="mebtn">
+								<div className="usericon">
+									<img src={this.props.user.image} width="22px" alt="profile" />
+									<p>Me ▼</p>
+								</div>
+								<div class="dropdown-content text-left">
 									<img
 										src={this.props.user.image}
 										className="dropdownUserimage"
 										width="50px"
 										alt="profile"
 									/>
-									{this.props.user.username}
+									<div className="dropdownuserinfo">
+										<h6>{this.props.user.username}</h6>
+										{this.props.user.bio}
+									</div>
 									<br />
-									{this.props.user.bio}<br/>
-									<button>View Profile</button>
+									<button className="dropdownbtn" href="/profile">
+										View Profile
+									</button>
 									<hr />
 
 									<h5>Account</h5>

@@ -10,9 +10,9 @@ const fetchUser = async () => {
         headers,
       }
     );
-    console.log(response);
+    // console.log(response);
     const user = await response.json();
-    console.log(user);
+    // console.log(user);
     return user;
   } catch (error) {
     alert("You have an error:", error);
