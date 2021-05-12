@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Nav from "./components/Nav";
 import JumboProfile from "./components/JumboProfile";
 import Sidebar from "./components/Sidebar";
-import ModalExperience from "./components/ModalExperience";
+import Experiences from "./components/Experiences";
 import Footer from "./components/Footer";
 import fetchUser from "./services/fetchUser";
 import getUsers from "./services/getUsers";
