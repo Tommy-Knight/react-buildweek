@@ -70,7 +70,7 @@ input:focus {
 	display: none;
 	position: absolute;
 	justify-content: flex-start;
-	right: -8px;
+	right: 0px;
 	top: 33px;
 	padding-bottom: 8px;
 	padding-left: 15px;
@@ -80,15 +80,17 @@ input:focus {
 	border-radius: 8px 2px 8px 8px;
 	z-index: 1;
 }
-.dropdown:focus .dropdown-content {
+.dropdown:hover .dropdown-content {
 	display: block;
 }
+
 .dropdownUserimage {
 	border-radius: 45px;
 	position: fixed;
 	margin-top: 30px;
 	margin-left: 35px;
 }	
+
 .dropdownuserinfo {
 	padding-top: 20px;
 	padding-bottom: 20px;
@@ -101,10 +103,9 @@ input:focus {
 	background: none;
 	border: 2px solid rgb(66, 66, 224);
 	border-radius: 15px;
-	width: 250px;
+	width: 270px;
 	font-size: 15px;
 	justify-content: center;
-	margin-left: 10px;
 }
 .dropdownbtn:hover {
 	background-color: #acbfd3;
@@ -119,7 +120,7 @@ input:focus {
 	border-radius: 45px;
 	position: absolute;
 	left: -5px;
-	top: -10px;
+	top: -12px;
 }
 .mebtn > div > p {
 	position: absolute;
@@ -136,5 +137,8 @@ input:focus {
 	}
 	.navbtn{
 		margin-right: 1px;
+	}
+	.navicons {
+	border-right: 1px solid white;
 	}
 }
