@@ -5,7 +5,7 @@ import "../styles/JumboProfile.css";
 class JumboProfile extends React.Component {
   render() {
     return (
-      <Jumbotron id="jumbo">
+      <Jumbotron id="jumbo" className="">
         <img
           id="profile-img"
           className="hover"

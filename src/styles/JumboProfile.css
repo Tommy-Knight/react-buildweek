@@ -4,6 +4,7 @@
   position: relative;
   background-color: white;
   height: 562.5px;
+  border-radius: 10px;
 }
 
 #profile-img {
@@ -23,10 +24,12 @@
 }
 
 #background-img {
-  background-image: url("https://static-exp1.licdn.com/sc/h/9e0ckeb27mzi70ne80f4hv7il");
+  background-image: url('https://static-exp1.licdn.com/sc/h/9e0ckeb27mzi70ne80f4hv7il');
   height: 33%;
   width: 100%;
   object-fit: cover;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 #info-wrapper {
