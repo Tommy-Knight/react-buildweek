@@ -7,7 +7,7 @@ const getExp = async (userID) => {
     console.log("my USERID IN GETEXP", userID);
     const response = await fetch(
       "https://striveschool-api.herokuapp.com/api/profile/" +
-        { userID } +
+        userID +
         "/experiences",
       {
         headers,
@@ -25,5 +25,7 @@ const getExp = async (userID) => {
     alert("You have an error in sending experience request:", error);
   }
 };
+
+//{ userID } // { userID: userID }
 
 export default getExp;

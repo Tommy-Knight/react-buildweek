@@ -1,6 +1,6 @@
-import React from 'react';
-import { Col, Dropdown, Jumbotron, Row } from 'react-bootstrap';
-import '../styles/JumboProfile.css';
+import React from "react";
+import { Col, Dropdown, Jumbotron, Row } from "react-bootstrap";
+import "../styles/JumboProfile.css";
 
 class JumboProfile extends React.Component {
   render() {
@@ -10,7 +10,7 @@ class JumboProfile extends React.Component {
           id="profile-img"
           className="hover"
           src={this.props.user.image}
-          alt="profile-image"
+          alt="profile"
         />
 
         <div id="background-img"></div>
