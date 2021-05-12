@@ -47,7 +47,7 @@ class Experiences extends Component {
                 <img
                   width="50px"
                   src={this.props.userImg || "../assets/user.svg"}
-                />
+                alt="" />
               </Col>
               <Col md={10}>
                 <h4>

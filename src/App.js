@@ -8,6 +8,7 @@ import Experiences from "./components/Experiences";
 import Footer from "./components/Footer";
 import fetchUser from "./services/fetchUser";
 import getUsers from "./services/getUsers";
+import MakePost from "./components/MakePost"
 
 class App extends React.Component {
   state = {
@@ -42,7 +43,7 @@ class App extends React.Component {
           </Route>
 
           <Route path="/feed">
-            <h1>PAGE TO BE ADDED</h1>
+       <MakePost user={this.state.user}/>
           </Route>
         </Switch>
         <Footer />
