@@ -24,26 +24,71 @@ class App extends React.Component {
   };
   render() {
     return (
-      <Router>
-        <Nav user={this.state.user} />
-        <Container>
-          <Row>
-            <Col md={8}>
-              <JumboProfile user={this.state.user} />
-              <Experiences
-                userID={this.state.user._id}
-                userImg={this.state.user.image}
-              />
-            </Col>
-            <Col md={4}>
-              <Sidebar listOfUsers={this.state.listOfUsers} />
-            </Col>
-          </Row>
-        </Container>
-        <Footer />
-      </Router>
-    );
+			<Router>
+				<Nav user={this.state.user} />
+				<Switch>
+
+					<Route path="/" exact>
+						<Container>
+							<Row>
+								<Col md={8}>
+									<JumboProfile user={this.state.user} />
+									{/* <Experiences userID={this.state.user._id} /> */}
+								</Col>
+								<Col md={4}>
+									<Sidebar listOfUsers={this.state.listOfUsers} />
+								</Col>
+							</Row>
+						</Container>
+					</Route>
+
+					<Route path="/feed">
+						<h1>PAGE TO BE ADDED</h1>
+					</Route>
+
+				</Switch>
+				<Footer />
+			</Router>
+		)
   }
 }
 
 export default App;
+
+
+			// <Router>
+			// 	<>
+			// 		<Nav />
+			// 		<Switch>
+			// 			<Route
+			// 				render={(routerProps) => (
+			// 					<SearchResults {...routerProps} title="home" />
+			// 				)}
+			// 				path="/"
+			// 				exact
+			// 			/>
+			// 			<Route
+			// 				render={(routerProps) => (
+			// 					<DetailsPage {...routerProps} title="Show Details" />
+			// 				)}
+			// 				path="/info/:id"
+			// 				exact
+			// 			/>
+			// 			<Route
+			// 				render={(routerProps) => (
+			// 					<Registration {...routerProps} title="Registration" />
+			// 				)}
+			// 				path="/registration"
+			// 				exact
+			// 			/>
+			// 			<Route path="/series">
+			// 				<h2 style={{ marginLeft: "50px" }}> Our Favourite Series</h2>
+			// 				<Carousel movie="Walking Dead" />
+			// 			</Route>
+			// 			<Route path="/film">
+			// 				<h1>FILMS PAGE TO BE ADDED</h1>
+			// 			</Route>
+			// 		</Switch>
+			// 		<Footer />
+			// 	</>
+			// </Router>
