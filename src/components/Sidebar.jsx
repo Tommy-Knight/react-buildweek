@@ -3,7 +3,7 @@ import { ListGroup, Card, Button } from 'react-bootstrap';
 import '../styles/sidebar.css';
 
 class Sidebar extends Component {
-  randomnumber = Math.floor(Math.random() * 200) + 1;
+  randomnumber = Math.floor(Math.random() * 100) + 1;
 
   render() {
     // console.log(this.props.listOfUsers);
