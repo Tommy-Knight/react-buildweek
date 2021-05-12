@@ -1,20 +1,27 @@
 import React, { Component } from 'react';
 import { ListGroup, Card, Button } from 'react-bootstrap';
+import fetchUser from '../services/fetchUser';
+import getAnotherUser from '../services/getAnotherUser';
 import '../styles/sidebar.css';
 
 class Sidebar extends Component {
-  randomnumber = Math.floor(Math.random() * 200) + 1;
+  randomnumber = Math.floor(Math.random() * 100) + 1;
+
+  handleGetAnotherUser = (e) => {
+    console.log('this is my click event', e);
+    // getAnotherUser(e.value)
+  };
 
   render() {
-    // console.log(this.props.listOfUsers);
+    console.log(this.props.listOfUsers);
     return (
-      <div>
+      <div className="py-4">
         <Card id="CardSidebar" style={{}}>
           <Card.Header className="mr-auto">People you may know</Card.Header>
           {this.props.listOfUsers
             .slice(this.randomnumber, this.randomnumber + 5)
             .map((item) => (
-              <ListGroup variant="flush">
+              <ListGroup variant="flush" key={item._id}>
                 <ListGroup.Item className="d-flex  ">
                   <img
                     className="my-1 userImg"
@@ -29,6 +36,8 @@ class Sidebar extends Component {
                     </h6>
                     <p className="mr-auto ">{item.title}</p>
                     <Button
+                      value={item._id}
+                      onClick={this.handleGetAnotherUser}
                       variant="outline-secondary"
                       className="rounded-pill mr-auto"
                     >
