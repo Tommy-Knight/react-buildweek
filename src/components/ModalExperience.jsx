@@ -5,7 +5,7 @@ class ModalExperience extends Component {
   state = {};
   render() {
     return (
-      <Modal.Dialog className={this.state.isModalVis ? "" : "d-none"}>
+      <Modal.Dialog>
         <Modal.Header closeButton>
           <Modal.Title>Modal title</Modal.Title>
         </Modal.Header>
