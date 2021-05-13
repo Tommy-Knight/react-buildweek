@@ -5,11 +5,7 @@ import "../styles/JumboProfile.css";
 class JumboProfile extends React.Component {
   render() {
     return (
-			<Card
-				style={{ marginBottom:"50px" }}
-				id="jumbo"
-				className=""
-			>
+			<Card style={{ marginBottom: "50px" }} id="jumbo" className="">
 				<img
 					id="profile-img"
 					className="hover"
@@ -53,11 +49,60 @@ class JumboProfile extends React.Component {
 							</Dropdown.Toggle>
 							<Dropdown.Menu>
 								<Dropdown.Item>
-									<b>Finding a new job </b>
+									<b>
+										Intro{" "}
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"
+										>
+											<path d="M6 9l6 6 6-6" />
+										</svg>
+									</b>
 								</Dropdown.Item>
 								<Dropdown.Divider />
 								<Dropdown.Item>
-									<b>Hiring</b>
+									<b>
+										About{" "}
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"
+										>
+											<path d="M6 9l6 6 6-6" />
+										</svg>
+									</b>
+								</Dropdown.Item>
+								<Dropdown.Divider />
+								<Dropdown.Item>
+									<b>
+										Profile{" "}
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"
+										>
+											<path d="M6 9l6 6 6-6" />
+										</svg>
+									</b>
 								</Dropdown.Item>
 							</Dropdown.Menu>
 						</Dropdown>
