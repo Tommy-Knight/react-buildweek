@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import '../styles/experiences.css';
-import { Button, Col, Container, Modal, Row } from 'react-bootstrap';
+import { Button, Card, Col, Container,  Row } from 'react-bootstrap';
 import getExp from '../services/getExp';
 import ModalExperience from '../components/ModalExperience';
 import Example from './Example';
@@ -35,12 +35,9 @@ class Experiences extends Component {
 
   render() {
     return (
-      <Container>
-        <Row>
-          <Col>
-            <Row className="muted">
-              <h3>Experience</h3>
-            </Row>
+      <Card>
+       
+          
             {this.state.isModalVis && <ModalExperience />}
 
             <Row>
@@ -51,7 +48,7 @@ class Experiences extends Component {
                   alt=""
                 />
               </Col>
-              <Col md={10}>
+              <Col md={8}>
                 <h4>
                   {this.state.myExp.length > 0
                     ? this.state.myExp[0].company
@@ -68,7 +65,7 @@ class Experiences extends Component {
                     : 'Please, add an area!'}
                 </p>
               </Col>
-              <Col md={1}>
+              <Col md={2}>
                 <Example />
 
                 <Button variant="warning" onClick={this.handleEditExp}>
@@ -79,9 +76,8 @@ class Experiences extends Component {
                 </Button>
               </Col>
             </Row>
-          </Col>
-        </Row>
-      </Container>
+     
+      </Card>
     );
   }
 }
