@@ -13,6 +13,7 @@ export default class MakePost extends Component {
 	state = {
 		postInput: "",
 		posts: [],
+		posted: 0
 	}
 
 	componentDidMount = async () => {
@@ -53,6 +54,28 @@ export default class MakePost extends Component {
 		} catch (error) {
 			console.log("You have an error posting:", error)
 		}
+		this.componentDidMount()
+	}
+	handleDelete = async (e) => {
+		console.log(e.target.value)
+		const headers = {
+			Authorization: "Bearer " + process.env.REACT_APP_TOKEN,
+			"Content-Type": "application/json",
+		}
+		try {
+			const response = await fetch(
+				"https://striveschool-api.herokuapp.com/api/posts/" + e.target.value,
+				{
+					method: "DELETE",
+					headers,
+				}
+			)
+			const post = await response.json()
+			console.log(post)
+		} catch (error) {
+			console.log("You have an error posting:", error)
+		}
+		this.componentDidMount()
 	}
 	getposts = (e) => {
 		this.setState({ postInput: e.target.value })
@@ -137,83 +160,91 @@ export default class MakePost extends Component {
 										</Col>
 									</Row>
 								</Card.Text>
-								<Button
-									className="mx-2 bg-white btn-outline"
-									variant="light"
-									onClick={this.handleSubmit}
+								<div
+									style={{
+										width: "80%",
+										display: "flex",
+										justifyContent: "space-evenly",
+									}}
 								>
-									<svg
-										xmlns="http://www.w3.org/2000/svg"
-										width="24"
-										height="24"
-										viewBox="0 0 24 24"
-										fill="none"
-										stroke="#e7a33e"
-										stroke-width="2"
-										stroke-linecap="round"
-										stroke-linejoin="round"
+									<Button
+										className="mx-2 bg-white btn-outline"
+										variant="light"
+										onClick={this.handleSubmit}
 									>
-										<polygon points="14 2 18 6 7 17 3 17 3 13 14 2"></polygon>
-										<line x1="3" y1="22" x2="21" y2="22"></line>
-									</svg>
-									Post
-								</Button>
-								<Button className="mx-2 bg-white" variant="light">
-									<svg
-										xmlns="http://www.w3.org/2000/svg"
-										width="24"
-										height="24"
-										viewBox="0 0 24 24"
-										fill="none"
-										stroke="#70b5f9"
-										stroke-width="2"
-										stroke-linecap="round"
-										stroke-linejoin="round"
-									>
-										<rect x="3" y="3" width="18" height="18" rx="2" />
-										<circle cx="8.5" cy="8.5" r="1.5" />
-										<path d="M20.4 14.5L16 10 4 20" />
-									</svg>
-									Photo
-								</Button>
-								<Button className="mx-2 bg-white" variant="light">
-									<svg
-										xmlns="http://www.w3.org/2000/svg"
-										width="24"
-										height="24"
-										viewBox="0 0 24 24"
-										fill="none"
-										stroke="#7fc15e"
-										stroke-width="2"
-										stroke-linecap="round"
-										stroke-linejoin="round"
-									>
-										<rect
-											x="2"
-											y="2"
-											width="20"
-											height="20"
-											rx="2.18"
-											ry="2.18"
-										></rect>
-										<line x1="7" y1="2" x2="7" y2="22"></line>
-										<line x1="17" y1="2" x2="17" y2="22"></line>
-										<line x1="2" y1="12" x2="22" y2="12"></line>
-										<line x1="2" y1="7" x2="7" y2="7"></line>
-										<line x1="2" y1="17" x2="7" y2="17"></line>
-										<line x1="17" y1="17" x2="22" y2="17"></line>
-										<line x1="17" y1="7" x2="22" y2="7"></line>
-									</svg>
-									Video
-								</Button>
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="#e7a33e"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"
+										>
+											<polygon points="14 2 18 6 7 17 3 17 3 13 14 2"></polygon>
+											<line x1="3" y1="22" x2="21" y2="22"></line>
+										</svg>
+										Post
+									</Button>
+									<Button className="mx-2 bg-white" variant="light">
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="#70b5f9"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"
+										>
+											<rect x="3" y="3" width="18" height="18" rx="2" />
+											<circle cx="8.5" cy="8.5" r="1.5" />
+											<path d="M20.4 14.5L16 10 4 20" />
+										</svg>
+										Photo
+									</Button>
+									<Button className="mx-2 bg-white" variant="light">
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="#7fc15e"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"
+										>
+											<rect
+												x="2"
+												y="2"
+												width="20"
+												height="20"
+												rx="2.18"
+												ry="2.18"
+											></rect>
+											<line x1="7" y1="2" x2="7" y2="22"></line>
+											<line x1="17" y1="2" x2="17" y2="22"></line>
+											<line x1="2" y1="12" x2="22" y2="12"></line>
+											<line x1="2" y1="7" x2="7" y2="7"></line>
+											<line x1="2" y1="17" x2="7" y2="17"></line>
+											<line x1="17" y1="17" x2="22" y2="17"></line>
+											<line x1="17" y1="7" x2="22" y2="7"></line>
+										</svg>
+										Video
+									</Button>
+								</div>
 							</Card.Body>
 						</Card>
 						<br />
 						{this.state.posts
-							.slice(-3)
+							.slice(-4)
 							.reverse()
 							.map((post) => (
-								<Card className="my-2">
+								<Card key={post._id} className="my-2">
 									<Col xs={12} className="p-0 mb-4 section-outer">
 										<div
 											style={{ padding: "12px 12px 0px 12px" }}
@@ -226,7 +257,7 @@ export default class MakePost extends Component {
 											></img>
 
 											<div className="ms-2 d-flex flex-column">
-												<span className="ml-2">{post.user.name}</span>
+												<b className="ml-2">{post.user.name}</b>
 												<span className="text-muted ml-2">
 													{post.username}
 													<svg
@@ -321,7 +352,12 @@ export default class MakePost extends Component {
 											</div>
 
 											<div className="d-flex align-items-center">
-												<Button variant="light" className="mx-2 text-muted">
+												<Button
+													value={post._id}
+													onClick={this.handleDelete}
+													variant="light"
+													className="mx-2 text-muted"
+												>
 													<svg
 														xmlns="http://www.w3.org/2000/svg"
 														viewBox="0 0 24 24"
@@ -334,7 +370,7 @@ export default class MakePost extends Component {
 													>
 														<path d="M21 3L0 10l7.66 4.26L16 8l-6.26 8.34L14 24l7-21z"></path>
 													</svg>
-													Send
+													Delete
 												</Button>
 											</div>
 										</div>
