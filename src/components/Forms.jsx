@@ -33,30 +33,29 @@ export default class Forms extends Component {
   handleSubmit = async () => {
     // CHANGE ROLE
     const postExp = {
-      role: this.state.company,
-      company: this.state.company,
+      role: this.state.companyName,
+      company: this.state.companyName,
       startDate: this.state.startDate,
+      endDate: this.state.endDate,
       description: this.state.description,
       area: this.state.location,
-      endDate: this.state.endDate,
     };
-
+console.log(postExp)
     const headers = {
       Authorization: 'Bearer ' + process.env.REACT_APP_TOKEN,
       'Content-Type': 'application/json',
     };
     try {
       const response = await fetch(
-        'https://striveschool-api.herokuapp.com/api/profile/609a4cffdfccc50015a6bbb2/experiences',
-
-        {
-          method: 'POST',
-          body: JSON.stringify(postExp),
-          headers,
-        }
-      );
+				"https://striveschool-api.herokuapp.com/api/profile/me/experiences",
+				{
+					method: "POST",
+					body: JSON.stringify(postExp),
+					headers,
+				}
+			)
       const post = await response.json();
-      console.log(post);
+      console.log("then here" + post);
     } catch (error) {
       console.log('You have an error posting:', error);
     }
@@ -113,7 +112,7 @@ export default class Forms extends Component {
         </Form.Group>
         {/* prevent default here
         !! */}
-        <Button variant="primary" type="submit" onClick={this.handleSubmit}>
+        <Button variant="primary" type="button" onClick={this.handleSubmit}>
           Submit
         </Button>
       </Form>
