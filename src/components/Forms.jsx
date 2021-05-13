@@ -91,6 +91,16 @@ export default class Forms extends Component {
 					/>
 				</Form.Group>
 				<Form.Group>
+						<Form.Group>
+					<Form.Label>Location</Form.Label>
+					<Form.Control
+						type="text"
+						placeholder="Location"
+						onChange={this.getLoc}
+						required
+					/>
+				</Form.Group>
+				<Form.Group></Form.Group>
 					<Form.Label>Description</Form.Label>
 					<Form.Control
 						name="description"
@@ -115,18 +125,6 @@ export default class Forms extends Component {
 					<Form.Label>End date</Form.Label>
 					<Form.Control onChange={this.getEDate} type="date" label="End date" />
 				</Form.Group>
-
-				<Form.Group>
-					<Form.Label>Location</Form.Label>
-					<Form.Check
-						type="text"
-						label="Location"
-						onChange={this.getLoc}
-						required
-					/>
-				</Form.Group>
-				{/* prevent default here
-        !! */}
 				<Button variant="primary" type="button" onClick={this.handleSubmit}>
 					Submit
 				</Button>
