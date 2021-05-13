@@ -442,9 +442,6 @@ export default class MakePost extends Component {
 								<div style={{ padding: "0px 12px 0px 12px" }}>
 									<hr></hr>
 								</div>
-
-								{/* interaction buttons  */}
-
 								<div className="mb-3 d-flex px-3">
 									<div className="d-flex align-items-center">
 										<Button variant="light" className="mx-2 text-muted">
