@@ -1,13 +1,20 @@
-import { Button, Modal } from 'react-bootstrap';
-import React, { useState } from 'react';
-import Forms from './Forms';
+import { Button, Modal } from "react-bootstrap"
+import React, { useState } from "react"
+import Forms from "./Forms"
 
 export default function Example() {
-  const [lgShow, setLgShow] = useState(false);
+	const [lgShow, setLgShow] = useState(false)
 
-  return (
+	return (
 		<>
-			<Button onClick={() => setLgShow(true)}>
+			<Button
+				style={{
+					background: "none",
+				}}
+				title="Post new Experience"
+				variant="white"
+				onClick={() => setLgShow(true)}
+			>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					width="24"
