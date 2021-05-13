@@ -3,6 +3,7 @@ import '../styles/experiences.css';
 import { Button, Col, Container, Modal, Row } from 'react-bootstrap';
 import getExp from '../services/getExp';
 import ModalExperience from '../components/ModalExperience';
+import Example from './Example';
 
 class Experiences extends Component {
   state = {
@@ -68,9 +69,8 @@ class Experiences extends Component {
                 </p>
               </Col>
               <Col md={1}>
-                <Button variant="success" onClick={this.handleAddExp}>
-                  Add
-                </Button>
+                <Example />
+
                 <Button variant="warning" onClick={this.handleEditExp}>
                   Edit
                 </Button>
