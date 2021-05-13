@@ -8,6 +8,7 @@ class Experiences extends Component {
 	state = {
 		myExp: [],
 		isModalVis: false,
+		count: 0
 	}
 
 	componentDidUpdate = async (prevProps) => {
@@ -19,25 +20,24 @@ class Experiences extends Component {
 		}
 	}
 
-	handleDelete = async (e) => {
-		console.log(e.target.value)
-		// const headers = {
-		// 	Authorization: "Bearer " + process.env.REACT_APP_TOKEN,
-		// 	"Content-Type": "application/json",
-		// }
-		// try {
-		// 	const response = await fetch(
-		// 		"https://striveschool-api.herokuapp.com/api/profile/me/experiences/"+e.target.value,
-		// 		{
-		// 			method: "DELETE",
-		// 			headers,
-		// 		}
-		// 	)
-		// 	const post = await response.json()
-		// 	console.log(post)
-		// } catch (error) {
-		// 	console.log("You have an error posting:", error)
-		// }
+	handleDelete = async e => {
+		console.log(e)
+		const headers = {
+			Authorization: "Bearer " + process.env.REACT_APP_TOKEN,
+			"Content-Type": "application/json",
+		}
+		try {
+			await fetch(
+				"https://striveschool-api.herokuapp.com/api/profile/me/experiences/"+e,
+				{
+					method: "DELETE",
+					headers,
+				}
+			)
+		} catch (error) {
+			console.log("You have an error posting:", error)
+		}
+		this.render()
 	}
 
 	render() {
@@ -81,7 +81,7 @@ class Experiences extends Component {
 								type="button"
 								title="Remove Experience"
 								variant="white"
-								onClick={this.handleDelete}
+								onClick={() => this.handleDelete(experience._id)}
 							>
 								<svg
 									xmlns="http://www.w3.org/2000/svg"
@@ -93,6 +93,7 @@ class Experiences extends Component {
 									stroke-width="2"
 									stroke-linecap="round"
 									stroke-linejoin="round"
+									value={experience._id}
 								>
 									<polygon points="16 3 21 8 8 21 3 21 3 16 16 3"></polygon>
 								</svg>

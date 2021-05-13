@@ -65,6 +65,7 @@ export default class Forms extends Component {
 		} catch (error) {
 			console.log("You have an error posting:", error)
 		}
+		window.location.reload(true)
 	}
 
 	render() {
