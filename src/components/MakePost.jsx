@@ -23,9 +23,11 @@ export default class MakePost extends Component {
 		await this.renderPosts()
 	}
 
-	componentDidUpdate = (pervProps, prevState) => {
-		this.state.isSubmitClicked && this.renderPosts()
-	}
+  componentDidUpdate = (pervProps, prevState) => {
+    
+      this.state.isSubmitClicked && this.renderPosts();
+    
+  };
 
 	renderPosts = async () => {
 		const posts = await getPosts()
@@ -34,43 +36,49 @@ export default class MakePost extends Component {
 		this.setState({ isSubmitClicked: false })
 	}
 
-	handleSubmit = async () => {
-		this.state.postInput.length > 0 && this.setState({ isSubmitClicked: true })
-		const postInput = { text: this.state.postInput }
-		const headers = {
-			Authorization: "Bearer " + process.env.REACT_APP_TOKEN,
-			"Content-Type": "application/json",
-		}
-		try {
-			await fetch("https://striveschool-api.herokuapp.com/api/posts/", {
-				method: "POST",
-				body: JSON.stringify(postInput),
-				headers,
-			})
-			this.setState({ postInput: "" })
-		} catch (error) {
-			console.log("You have an error posting:", error)
-		}
-	}
-	handleDelete = async (e) => {
-		console.log("my delete value", e.target.value)
-		const headers = {
-			Authorization: "Bearer " + process.env.REACT_APP_TOKEN,
-			"Content-Type": "application/json",
-		}
-		try {
-			await fetch(
-				"https://striveschool-api.herokuapp.com/api/posts/" + e.target.value,
-				{
-					method: "DELETE",
-					headers,
-				}
-			)
-			this.renderPosts()
-		} catch (error) {
-			console.log("You have an error deleting:", error)
-		}
-	}
+  handleSubmit = async () => {
+    
+      this.state.postInput.length > 0 &&
+        this.setState({ isSubmitClicked: true });
+      const postInput = { text: this.state.postInput };
+      const headers = {
+        Authorization: "Bearer " + process.env.REACT_APP_TOKEN,
+        "Content-Type": "application/json",
+      };
+      try {
+        await fetch(
+          "https://striveschool-api.herokuapp.com/api/posts/",
+          {
+            method: "POST",
+            body: JSON.stringify(postInput),
+            headers,
+          }
+        );
+        this.setState({ postInput: "" });
+      } catch (error) {
+        console.log("You have an error posting:", error);
+
+    }
+  };
+  handleDelete = async (e) => {
+    console.log("my delete value", e.target.value);
+    const headers = {
+      Authorization: "Bearer " + process.env.REACT_APP_TOKEN,
+      "Content-Type": "application/json",
+    };
+    try {
+      await fetch(
+        "https://striveschool-api.herokuapp.com/api/posts/" + e.target.value,
+        {
+          method: "DELETE",
+          headers,
+        }
+      );
+      this.renderPosts();
+    } catch (error) {
+      console.log("You have an error deleting:", error);
+    }
+  };
 
 	newPostValue = (e) => {
 		this.setState({ postInput: e.target.value })
