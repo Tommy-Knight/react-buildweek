@@ -13,7 +13,7 @@ export default class ProfileForms extends Component {
 		area: "",
 		image: "",
 	}
-	
+
 	getName = (e) => {
 		this.setState({ name: e.target.value })
 		console.log(this.state)

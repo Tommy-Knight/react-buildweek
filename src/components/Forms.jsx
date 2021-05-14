@@ -92,16 +92,16 @@ export default class Forms extends Component {
 					/>
 				</Form.Group>
 				<Form.Group>
-						<Form.Group>
-					<Form.Label>Location</Form.Label>
-					<Form.Control
-						type="text"
-						placeholder="Location"
-						onChange={this.getLoc}
-						required
-					/>
-				</Form.Group>
-				<Form.Group></Form.Group>
+					<Form.Group>
+						<Form.Label>Location</Form.Label>
+						<Form.Control
+							type="text"
+							placeholder="Location"
+							onChange={this.getLoc}
+							required
+						/>
+					</Form.Group>
+					<Form.Group></Form.Group>
 					<Form.Label>Description</Form.Label>
 					<Form.Control
 						name="description"

@@ -5,10 +5,16 @@ import Row from "react-bootstrap/Row"
 const Footer = (props) => {
 	return (
 		<Container
-			style={{ marginTop: "60px", bottom: "0px", position: "relative", fontSize: "10px", lineHeight: "20px"}}
+			style={{
+				marginTop: "60px",
+				bottom: "0px",
+				position: "relative",
+				fontSize: "10px",
+				lineHeight: "20px",
+			}}
 			id="footer"
 		>
-				<hr/>
+			<hr />
 			<Row>
 				<div className="col-md-3">
 					<nav>
@@ -91,7 +97,7 @@ const Footer = (props) => {
 						<br />
 						<br />
 						<a class="text-muted" href="home">
-							Safety Center 
+							Safety Center
 						</a>
 						<br />
 						<a class="text-muted" href="home">
