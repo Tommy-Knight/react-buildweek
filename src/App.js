@@ -1,50 +1,44 @@
-import React from 'react';
-import { Col, Container, Row } from 'react-bootstrap';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Nav from './components/Nav';
-import JumboProfile from './components/JumboProfile';
-import Sidebar from './components/Sidebar';
-import Experiences from './components/Experiences';
-import Footer from './components/Footer';
-import fetchUser from './services/fetchUser';
-import getUsers from './services/getUsers';
-import MakePost from './components/MakePost';
+import React from "react";
+// import { withRouter } from "react-router-dom";
+import { Col, Container, Row } from "react-bootstrap";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Nav from "./components/Nav";
+import JumboProfile from "./components/JumboProfile";
+import Sidebar from "./components/Sidebar";
+import Experiences from "./components/Experiences";
+import MyProfile from "./components/MyProfile";
+import Footer from "./components/Footer";
+import fetchUser from "./services/fetchUser";
+import getUsers from "./services/getUsers";
+import MakePost from "./components/MakePost";
+import UserPage from "./components/UserPage";
 
 class App extends React.Component {
   state = {
     user: {},
-    listOfUsers: [],
   };
-  componentDidMount = async () => {
-    const getUser = await fetchUser();
 
+  componentDidMount = async () => {
+    const getUser = await fetchUser("/");
     this.setState({ user: getUser });
-    const getListOfUsers = await getUsers();
-    this.setState({ listOfUsers: getListOfUsers });
-    // getExp(this.state.user._id);
   };
+
   render() {
     return (
       <Router>
         <Nav user={this.state.user} />
         <Switch>
-          <Route path="/" exact>
-            <Container>
-              <Row>
-                <Col md={8}>
-                  <JumboProfile user={this.state.user} />
-                  <Experiences userID={this.state.user._id} />
-                </Col>
-                <Col md={4}>
-                  <Sidebar listOfUsers={this.state.listOfUsers} />
-                </Col>
-              </Row>
-            </Container>
-          </Route>
-
-          <Route path="/feed">
-            <MakePost user={this.state.user} />
-          </Route>
+          <Route
+            render={(routerProps) => <MyProfile {...routerProps} />}
+            path={["/:userId", "/feed"]}
+          />
+          <Route
+            render={(routerProps) => (
+              <MakePost {...routerProps} user={this.state.user} />
+            )}
+            path="/"
+            exact
+          />
         </Switch>
         <Footer />
       </Router>

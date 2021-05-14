@@ -1,16 +1,13 @@
-import React, { Component } from 'react';
-import { ListGroup, Card, Button } from 'react-bootstrap';
-import fetchUser from '../services/fetchUser';
-import getAnotherUser from '../services/getAnotherUser';
-import '../styles/sidebar.css';
+import React, { Component } from "react";
+import { ListGroup, Card, Button } from "react-bootstrap";
+import fetchUser from "../services/fetchUser";
+import getAnotherUser from "../services/getAnotherUser";
+import "../styles/sidebar.css";
+import { withRouter } from "react-router-dom";
+import UserCard from "./UserCard";
 
 class Sidebar extends Component {
   randomnumber = Math.floor(Math.random() * 100) + 1;
-
-  handleGetAnotherUser = (e) => {
-    console.log('this is my click event', e);
-    // getAnotherUser(e.value)
-  };
 
   render() {
     console.log(this.props.listOfUsers);
@@ -20,32 +17,8 @@ class Sidebar extends Component {
           <Card.Header className="mr-auto">People you may know</Card.Header>
           {this.props.listOfUsers
             .slice(this.randomnumber, this.randomnumber + 5)
-            .map((item) => (
-              <ListGroup variant="flush" key={item._id}>
-                <ListGroup.Item className="d-flex  ">
-                  <img
-                    className="my-1 userImg"
-                    src={item.image}
-                    width=" 40px"
-                    height="40px"
-                    alt=""
-                  />
-                  <div className="d-flex flex-column mr-auto ml-1">
-                    <h6 className=" mr-auto">
-                      {item.name} {item.surname}
-                    </h6>
-                    <p className="mr-auto ">{item.title}</p>
-                    <Button
-                      value={item._id}
-                      onClick={this.handleGetAnotherUser}
-                      variant="outline-secondary"
-                      className="rounded-pill mr-auto"
-                    >
-                      <b>Connect</b>
-                    </Button>{' '}
-                  </div>
-                </ListGroup.Item>
-              </ListGroup>
+            .map((user) => (
+              <UserCard user={user} />
             ))}
         </Card>
       </div>
@@ -53,4 +26,4 @@ class Sidebar extends Component {
   }
 }
 
-export default Sidebar;
+export default withRouter(Sidebar);

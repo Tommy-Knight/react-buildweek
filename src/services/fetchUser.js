@@ -1,11 +1,15 @@
-const fetchUser = async () => {
+const fetchUser = async (pathname) => {
   const headers = {
-    Authorization: 'Bearer ' + process.env.REACT_APP_TOKEN,
+    Authorization: "Bearer " + process.env.REACT_APP_TOKEN,
   };
+
+  console.log("MY PATH IN GET", pathname);
 
   try {
     const response = await fetch(
-      'https://striveschool-api.herokuapp.com/api/profile/me',
+      pathname === "/"
+        ? "https://striveschool-api.herokuapp.com/api/profile/me"
+        : "https://striveschool-api.herokuapp.com/api/profile/" + pathname,
       {
         headers,
       }
@@ -16,7 +20,7 @@ const fetchUser = async () => {
     // console.log(user);
     return user;
   } catch (error) {
-    alert('You have an error in fetching another user:', error);
+    alert("You have an error in fetching another user:", error);
   }
 };
 

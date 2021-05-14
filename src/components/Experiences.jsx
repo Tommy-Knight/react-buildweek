@@ -1,9 +1,9 @@
-import { Component } from 'react';
-import '../styles/experiences.css';
-import { Button, Col, Container, Modal, Row } from 'react-bootstrap';
-import getExp from '../services/getExp';
-import ModalExperience from '../components/ModalExperience';
-import Example from './Example';
+import { Component } from "react";
+import "../styles/experiences.css";
+import { Button, Col, Container, Modal, Row } from "react-bootstrap";
+import getExp from "../services/getExp";
+import ModalExperience from "../components/ModalExperience";
+import Example from "./Example";
 
 class Experiences extends Component {
   state = {
@@ -14,22 +14,13 @@ class Experiences extends Component {
     const visOn = await this.setState({ isModalVis: true });
     console.log(this.state);
   };
-  handleEditExp = () => {
-    alert('Edit');
-  };
-  handleRemoveExp = () => {
-    alert('Remove');
-  };
-  // componentDidMount = async () => {
-  //   console.log("My user ID in mount:", this.props.userID);
-  // };
 
   componentDidUpdate = async (prevProps) => {
-    console.log('My user ID in update:', this.props.userID);
+    console.log("My user ID in update:", this.props.userID);
     if (prevProps.userID !== this.props.userID) {
       const listOfExp = await getExp(this.props.userID);
       this.setState({ myExp: listOfExp });
-      console.log('myexp', this.state.myExp);
+      console.log("myexp", this.state.myExp);
     }
   };
 
@@ -47,7 +38,7 @@ class Experiences extends Component {
               <Col md={1}>
                 <img
                   width="50px"
-                  src={this.props.userImg || '../assets/user.svg'}
+                  src={this.props.userImg || "../assets/user.svg"}
                   alt=""
                 />
               </Col>
@@ -55,17 +46,17 @@ class Experiences extends Component {
                 <h4>
                   {this.state.myExp.length > 0
                     ? this.state.myExp[0].company
-                    : 'Please, add an experience!'}
+                    : "Please, add an experience!"}
                 </h4>
                 <h5>
                   {this.state.myExp.length > 0
                     ? this.state.myExp[0].role
-                    : 'Please, add a role!'}
+                    : "Please, add a role!"}
                 </h5>
                 <p>
                   {this.state.myExp.length > 0
                     ? this.state.myExp[0].area
-                    : 'Please, add an area!'}
+                    : "Please, add an area!"}
                 </p>
               </Col>
               <Col md={1}>
