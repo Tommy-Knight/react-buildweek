@@ -1,0 +1,40 @@
+#Learning {
+  border-radius: 10px;
+}
+#Learning > div > div:nth-child(1) > div.col-10.col {
+  padding-left: 0px !important;
+}
+#Learning > div > div:nth-child(1) > div.col-2.col {
+  padding-right: 0px !important;
+}
+#Learning > div > div:nth-child(1) > div.col-10.col > div {
+  transform: translateX(-30px);
+  border: none;
+}
+#Learning > div > div:nth-child(2) > div.col-12.col > div {
+  border: none !important;
+}
+#Learning > div > div:nth-child(3) > div:nth-child(2) > div {
+  border: none !important;
+}
+#Learning > div > div:nth-child(4) > div:nth-child(2) > div {
+  border: none !important;
+}
+#Learning > div > div:nth-child(5) > div:nth-child(2) > div {
+  border: none !important;
+}
+
+#Learning > div > div:nth-child(1) > div.col-2.col > svg {
+  margin: 0 auto;
+}
+#Learning > div > div:nth-child(1) > div.col-2.col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+#Learning > div > div.text-center.card-header {
+  background-color: white;
+  border-radius: 10px;
+}

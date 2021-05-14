@@ -3,3 +3,6 @@
   position: absolute;
   overflow: auto;
 } */
+#root > div:nth-child(2) > div > div.col-md-8 > div:nth-child(n) {
+  border-radius: 10px;
+}

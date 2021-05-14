@@ -1,10 +1,10 @@
-import { Component } from "react";
-import { Col, Container, Row } from "react-bootstrap";
-import JumboProfile from "./JumboProfile";
-import Sidebar from "./Sidebar";
-import Experiences from "./Experiences";
-import fetchUser from "../services/fetchUser";
-import getUsers from "../services/getUsers";
+import { Component } from 'react';
+import { Col, Container, Row } from 'react-bootstrap';
+import JumboProfile from './JumboProfile';
+import Sidebar from './Sidebar';
+import Experiences from './Experiences';
+import fetchUser from '../services/fetchUser';
+import getUsers from '../services/getUsers';
 
 class UserPage extends Component {
   //   state = {

@@ -1,18 +1,18 @@
-import React, { Component } from "react";
-import { ListGroup, Card, Button } from "react-bootstrap";
-import fetchUser from "../services/fetchUser";
-import getAnotherUser from "../services/getAnotherUser";
-import "../styles/sidebar.css";
-import { withRouter } from "react-router-dom";
-import UserCard from "./UserCard";
-
+import React, { Component } from 'react';
+import { ListGroup, Card, Button } from 'react-bootstrap';
+import fetchUser from '../services/fetchUser';
+import getAnotherUser from '../services/getAnotherUser';
+import '../styles/sidebar.css';
+import { withRouter } from 'react-router-dom';
+import UserCard from './UserCard';
+import Learning from './Learning';
 class Sidebar extends Component {
   randomnumber = Math.floor(Math.random() * 100) + 1;
 
   render() {
     console.log(this.props.listOfUsers);
     return (
-      <div className="py-4">
+      <div className="">
         <Card id="CardSidebar" style={{}}>
           <Card.Header className="mr-auto">People you may know</Card.Header>
           {this.props.listOfUsers
@@ -21,6 +21,7 @@ class Sidebar extends Component {
               <UserCard user={user} key={user._id} />
             ))}
         </Card>
+        <Learning />
       </div>
     );
   }

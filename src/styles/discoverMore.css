@@ -1,0 +1,17 @@
+#DiscoverMore {
+  border: none;
+  border-radius: 10px;
+}
+#DiscoverMore > div > div:nth-child(1) {
+  border: none;
+}
+#DiscoverMore > div > div.row > div.col-8.col > div {
+  border: none;
+}
+#DiscoverMore > div > div.card-header {
+  border-radius: 10px;
+  background-color: white;
+}
+#DiscoverMore > div > div:nth-child(1) {
+  border-radius: 10px;
+}
