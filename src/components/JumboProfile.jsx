@@ -1,63 +1,114 @@
 import React from "react";
-import { Col, Dropdown, Jumbotron, Row } from "react-bootstrap";
+import { Card, Col, Dropdown, Jumbotron, Row } from "react-bootstrap";
 import "../styles/JumboProfile.css";
 
 class JumboProfile extends React.Component {
   render() {
     return (
-      <Jumbotron id="jumbo" className="">
+      <Card style={{ marginBottom: "50px" }} id="jumbo" className="">
         <img
           id="profile-img"
           className="hover"
           src={this.props.user.image}
-          alt="profile picture"
+          alt="profile"
         />
 
         <div id="background-img"></div>
 
-        <div id="info-wrapper">
+        <div style={{ marginLeft: "30px" }} id="info-wrapper">
           <h3>
             {this.props.user.name} {this.props.user.surname}
           </h3>
           <p>{this.props.user.area}</p>
           <p>{this.props.user.title}</p>
+
           <Row>
-            <Col id="dropdown-wrapper" md={2} className="d-flex">
-              <Dropdown>
-                <Dropdown.Toggle id="dropdown-open">Open to</Dropdown.Toggle>
-                <Dropdown.Menu>
-                  <Dropdown.Item>
-                    <p>Finding a new job </p>
-                    <p className="muted">
-                      Show recruiters and others that you‘re Open to work
-                    </p>
-                  </Dropdown.Item>
-                  <Dropdown.Item>
-                    <p>Hiring</p>
-                    <p className="muted">
-                      Share that you‘re hiring and attract qualified candidates
-                    </p>
-                  </Dropdown.Item>
-                </Dropdown.Menu>
-              </Dropdown>
-              <Dropdown>
-                <Dropdown.Toggle id="dropdown-add">
-                  Add profile section
-                </Dropdown.Toggle>
-                <Dropdown.Menu>
-                  <Dropdown.Item>
-                    <p>Finding a new job </p>
-                  </Dropdown.Item>
-                  <Dropdown.Divider />
-                  <Dropdown.Item>
-                    <p>Hiring</p>
-                  </Dropdown.Item>
-                </Dropdown.Menu>
-              </Dropdown>
-            </Col>
+            <br />
+            <Dropdown>
+              <Dropdown.Toggle style={{ lineHeight: "20%" }} id="dropdown-open">
+                Open to
+              </Dropdown.Toggle>
+              <Dropdown.Menu>
+                <Dropdown.Item>
+                  <b>Finding a new job </b>
+                  <p className="muted">
+                    Show recruiters and others that you‘re Open to work
+                  </p>
+                </Dropdown.Item>
+                <Dropdown.Item>
+                  <b>Hiring</b>
+                  <p className="muted">
+                    Share that you‘re hiring and attract qualified candidates
+                  </p>
+                </Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
+            <Dropdown>
+              <Dropdown.Toggle style={{ lineHeight: "20%" }} id="dropdown-add">
+                Add profile section
+              </Dropdown.Toggle>
+              <Dropdown.Menu>
+                <Dropdown.Item>
+                  <b>
+                    Intro{" "}
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M6 9l6 6 6-6" />
+                    </svg>
+                  </b>
+                </Dropdown.Item>
+                <Dropdown.Divider />
+                <Dropdown.Item>
+                  <b>
+                    About{" "}
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M6 9l6 6 6-6" />
+                    </svg>
+                  </b>
+                </Dropdown.Item>
+                <Dropdown.Divider />
+                <Dropdown.Item>
+                  <b>
+                    Profile{" "}
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M6 9l6 6 6-6" />
+                    </svg>
+                  </b>
+                </Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
           </Row>
         </div>
-      </Jumbotron>
+      </Card>
     );
   }
 }
