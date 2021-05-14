@@ -1,8 +1,12 @@
 import React from "react";
-import { Card, Col, Dropdown, Jumbotron, Row } from "react-bootstrap";
+import { Card, Col, Dropdown, Row } from "react-bootstrap";
 import "../styles/JumboProfile.css";
+import ProfileModal from "../services/ProfileModal"
 
 class JumboProfile extends React.Component {
+state={user: this.props.user}
+
+  componentDidMount() {}
   render() {
     return (
       <Card style={{ marginBottom: "50px" }} id="jumbo" className="">
@@ -15,13 +19,17 @@ class JumboProfile extends React.Component {
 
         <div id="background-img"></div>
 
-        <div style={{ marginLeft: "30px" }} id="info-wrapper">
-          <h3>
-            {this.props.user.name} {this.props.user.surname}
-          </h3>
-          <p>{this.props.user.area}</p>
-          <p>{this.props.user.title}</p>
-
+            <div style={{ marginLeft: "30px" }} id="info-wrapper">
+        <Row>
+        <Col className="col-9">
+              <h3>
+                {this.props.user.name} {this.props.user.surname}
+              </h3>
+              <p>{this.props.user.area}</p>
+              <p>{this.props.user.title}</p>
+        </Col>
+          <Col className="col-2"><ProfileModal/></Col>
+        </Row>
           <Row>
             <br />
             <Dropdown>
