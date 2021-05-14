@@ -33,7 +33,7 @@ class MyProfile extends Component {
         <Row>
           <Col md={8}>
             <JumboProfile user={this.state.user} />
-            <Experiences userID={this.state.user._id} />
+            <Experiences userID={this.state.user._id} user={this.props.user} />
           </Col>
           <Col md={4}>
             <Sidebar listOfUsers={this.state.listOfUsers} />

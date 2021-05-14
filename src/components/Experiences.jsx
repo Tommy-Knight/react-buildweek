@@ -2,13 +2,14 @@ import { Component } from "react";
 import "../styles/experiences.css";
 import { Button, Card, Col, Row } from "react-bootstrap";
 import getExp from "../services/getExp";
-import Example from "./Example";
+import ExperienceModal from "./ExperienceModal";
 
 class Experiences extends Component {
   state = {
     myExp: [],
     isModalVis: false,
     count: 0,
+    // myPath: this.props.location.pathname,
   };
 
   componentDidUpdate = async (prevProps) => {
@@ -52,7 +53,8 @@ class Experiences extends Component {
             </h5>
           </Col>
           <Col className="col-2">
-            <Example />
+            {/* {this.state.myPath === "/me" && <ExperienceModal />} */}
+            <ExperienceModal />
           </Col>
         </Row>
         <br />
@@ -73,33 +75,35 @@ class Experiences extends Component {
                 <hr />
               </div>
             </Col>
-            <Col md={2}>
-              <Button
-                value={experience._id}
-                style={{
-                  background: "none",
-                }}
-                type="button"
-                title="Remove Experience"
-                variant="white"
-                onClick={() => this.handleDelete(experience._id)}
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+            {this.props.user._id === experience.user && (
+              <Col md={2}>
+                <Button
                   value={experience._id}
+                  style={{
+                    background: "none",
+                  }}
+                  type="button"
+                  title="Remove Experience"
+                  variant="white"
+                  onClick={() => this.handleDelete(experience._id)}
                 >
-                  <polygon points="16 3 21 8 8 21 3 21 3 16 16 3"></polygon>
-                </svg>
-              </Button>
-            </Col>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    value={experience._id}
+                  >
+                    <polygon points="16 3 21 8 8 21 3 21 3 16 16 3"></polygon>
+                  </svg>
+                </Button>
+              </Col>
+            )}
           </Row>
         ))}
       </Card>
