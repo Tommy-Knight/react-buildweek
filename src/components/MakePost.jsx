@@ -24,9 +24,9 @@ export default class MakePost extends Component {
   };
 
   componentDidUpdate = (pervProps, prevState) => {
-    {
+    
       this.state.isSubmitClicked && this.renderPosts();
-    }
+    
   };
 
   renderPosts = async () => {
@@ -37,7 +37,6 @@ export default class MakePost extends Component {
   };
 
   handleSubmit = async () => {
-    {
       this.state.postInput.length > 0 &&
         this.setState({ isSubmitClicked: true });
       const postInput = { text: this.state.postInput };
@@ -46,21 +45,17 @@ export default class MakePost extends Component {
         "Content-Type": "application/json",
       };
       try {
-        const response = await fetch(
-          "https://striveschool-api.herokuapp.com/api/posts/",
+        await fetch(
+          'https://striveschool-api.herokuapp.com/api/posts/',
           {
             method: "POST",
             body: JSON.stringify(postInput),
             headers,
           }
         );
-        // const post = await response.json();
-        // console.log(post);
-        this.setState({ postInput: "" });
+        this.setState({ postInput: '' });
       } catch (error) {
-        console.log("You have an error posting:", error);
-      }
-      // this.componentDidMount();
+        console.log('You have an error posting:', error);
     }
   };
   handleDelete = async (e) => {
@@ -70,20 +65,17 @@ export default class MakePost extends Component {
       "Content-Type": "application/json",
     };
     try {
-      const response = await fetch(
-        "https://striveschool-api.herokuapp.com/api/posts/" + e.target.value,
+      await fetch(
+        'https://striveschool-api.herokuapp.com/api/posts/' + e.target.value,
         {
           method: "DELETE",
           headers,
         }
-      );
-      //   const post = await response.json();
-      //   console.log(post);
+      )
       this.renderPosts();
     } catch (error) {
       console.log("You have an error deleting:", error);
     }
-    // this.componentDidMount();
   };
 
   newPostValue = (e) => {
