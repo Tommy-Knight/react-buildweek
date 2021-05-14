@@ -23,6 +23,6 @@
 #root > div:nth-child(2) > div > div.col-9.col > div:nth-child(1) {
   border-radius: 10px;
 }
-#postCard {
-  border-radius: 10px;
+.postCard {
+  border-radius: 10px !important;
 }
