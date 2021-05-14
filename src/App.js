@@ -22,7 +22,9 @@ class App extends React.Component {
         <Nav user={this.state.user} />
         <Switch>
           <Route
-            render={(routerProps) => <MyProfile {...routerProps} />}
+            render={(routerProps) => (
+              <MyProfile {...routerProps} user={this.state.user} />
+            )}
             path={["/:userId", "/feed"]}
           />
           <Route

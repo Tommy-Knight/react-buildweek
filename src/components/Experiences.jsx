@@ -1,15 +1,16 @@
-import { Component } from "react"
-import "../styles/experiences.css"
-import { Button, Card, Col, Row } from "react-bootstrap"
-import getExp from "../services/getExp"
-import Example from "./Example"
+import { Component } from "react";
+import "../styles/experiences.css";
+import { Button, Card, Col, Row } from "react-bootstrap";
+import getExp from "../services/getExp";
+import ExperienceModal from "./ExperienceModal";
 
 class Experiences extends Component {
-	state = {
-		myExp: [],
-		isModalVis: false,
-		count: 0,
-	}
+  state = {
+    myExp: [],
+    isModalVis: false,
+    count: 0,
+    // myPath: this.props.location.pathname,
+  };
 
 	componentDidUpdate = async (prevProps) => {
 		console.log("My user ID in update:", this.props.userID)

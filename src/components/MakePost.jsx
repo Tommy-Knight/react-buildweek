@@ -1,23 +1,25 @@
-import React, { Component } from "react"
+import React, { Component } from 'react';
 import {
-	Button,
-	Card,
-	Container,
-	Col,
-	Form,
-	FormControl,
-	Row,
-} from "react-bootstrap"
-import { getPosts } from "../services/getPosts"
+  Button,
+  Card,
+  Container,
+  Col,
+  Form,
+  FormControl,
+  Row,
+} from 'react-bootstrap';
+import { getPosts } from '../services/getPosts';
+import DiscoverMore from '../components/DiscoverMore';
+import '../styles/makeposts.css';
 
 export default class MakePost extends Component {
-	state = {
-		postInput: "",
-		posts: [],
-		posted: 0,
-		isSubmitClicked: false,
-		isDeleteClicked: false,
-	}
+  state = {
+    postInput: '',
+    posts: [],
+    posted: 0,
+    isSubmitClicked: false,
+    isDeleteClicked: false,
+  };
 
 	componentDidMount = async () => {
 		await this.renderPosts()
@@ -42,14 +44,14 @@ export default class MakePost extends Component {
         this.setState({ isSubmitClicked: true });
       const postInput = { text: this.state.postInput };
       const headers = {
-        Authorization: "Bearer " + process.env.REACT_APP_TOKEN,
-        "Content-Type": "application/json",
+        Authorization: 'Bearer ' + process.env.REACT_APP_TOKEN,
+        'Content-Type': 'application/json',
       };
       try {
         await fetch(
           "https://striveschool-api.herokuapp.com/api/posts/",
           {
-            method: "POST",
+            method: 'POST',
             body: JSON.stringify(postInput),
             headers,
           }
@@ -61,22 +63,22 @@ export default class MakePost extends Component {
     }
   };
   handleDelete = async (e) => {
-    console.log("my delete value", e.target.value);
+    console.log('my delete value', e.target.value);
     const headers = {
-      Authorization: "Bearer " + process.env.REACT_APP_TOKEN,
-      "Content-Type": "application/json",
+      Authorization: 'Bearer ' + process.env.REACT_APP_TOKEN,
+      'Content-Type': 'application/json',
     };
     try {
       await fetch(
         "https://striveschool-api.herokuapp.com/api/posts/" + e.target.value,
         {
-          method: "DELETE",
+          method: 'DELETE',
           headers,
         }
       );
       this.renderPosts();
     } catch (error) {
-      console.log("You have an error deleting:", error);
+      console.log('You have an error deleting:', error);
     }
   };
 
@@ -84,181 +86,182 @@ export default class MakePost extends Component {
 		this.setState({ postInput: e.target.value })
 	}
 
-	render() {
-		return (
-			<Container>
-				<Row>
-					<Col className="col-3">
-						<Card>
-							<img
-								alt=""
-								src="https://static-exp1.licdn.com/sc/h/9e0ckeb27mzi70ne80f4hv7il"
-							></img>
-							<img
-								className="d-inline-block"
-								src={this.props.user.image}
-								style={{
-									borderRadius: "90px",
-									top: "20px",
-									left: "10px",
-									position: "absolute",
-									border: "1px solid lightgrey",
-								}}
-								width="35px"
-								alt="profile"
-							/>
-							<Card.Body>
-								<Card.Title>
-									{this.props.user.name} {this.props.user.surname}
-								</Card.Title>
-								<Card.Text>{this.props.user.bio}</Card.Text>
-							</Card.Body>
-							<Card.Footer>
-								<small className="text-muted">Last updated 2 mins ago</small>
-							</Card.Footer>
-						</Card>
-					</Col>
-					<Col className="col-9">
-						<Card>
-							<Card.Body>
-								<Card.Text>
-									<Row>
-										<Col className="col-1">
-											<img
-												className="d-inline-block"
-												src={this.props.user.image}
-												style={{
-													borderRadius: "90px",
-													marginRight: "5px",
-												}}
-												width="50px"
-												alt="profile"
-											/>
-										</Col>
-										<Col className="col-9">
-											<div
-												className="d-inline-block px-3 pb-3 align-items-center"
-												style={{
-													width: "100%",
-												}}
-											>
-												<Form
-													style={{
-														width: "100%",
-													}}
-												>
-													<FormControl
-														style={{
-															height: "48px",
-															width: "100%",
-															borderRadius: "35px",
-														}}
-														type="text"
-														value={this.state.postInput}
-														placeholder="Start a post"
-														className="w-100 mr-sm-2"
-														onChange={this.newPostValue}
-													/>
-												</Form>
-											</div>
-										</Col>
-									</Row>
-								</Card.Text>
-								<div
-									style={{
-										width: "80%",
-										display: "flex",
-										justifyContent: "space-evenly",
-									}}
-								>
-									<Button
-										className="mx-2 bg-white btn-outline"
-										variant="light"
-										onClick={this.handleSubmit}
-									>
-										<svg
-											xmlns="http://www.w3.org/2000/svg"
-											width="24"
-											height="24"
-											viewBox="0 0 24 24"
-											fill="none"
-											stroke="#e7a33e"
-											stroke-width="2"
-											stroke-linecap="round"
-											stroke-linejoin="round"
-										>
-											<polygon points="14 2 18 6 7 17 3 17 3 13 14 2"></polygon>
-											<line x1="3" y1="22" x2="21" y2="22"></line>
-										</svg>
-										Post
-									</Button>
-									<Button className="mx-2 bg-white" variant="light">
-										<svg
-											xmlns="http://www.w3.org/2000/svg"
-											width="24"
-											height="24"
-											viewBox="0 0 24 24"
-											fill="none"
-											stroke="#70b5f9"
-											stroke-width="2"
-											stroke-linecap="round"
-											stroke-linejoin="round"
-										>
-											<rect x="3" y="3" width="18" height="18" rx="2" />
-											<circle cx="8.5" cy="8.5" r="1.5" />
-											<path d="M20.4 14.5L16 10 4 20" />
-										</svg>
-										Photo
-									</Button>
-									<Button className="mx-2 bg-white" variant="light">
-										<svg
-											xmlns="http://www.w3.org/2000/svg"
-											width="24"
-											height="24"
-											viewBox="0 0 24 24"
-											fill="none"
-											stroke="#7fc15e"
-											stroke-width="2"
-											stroke-linecap="round"
-											stroke-linejoin="round"
-										>
-											<rect
-												x="2"
-												y="2"
-												width="20"
-												height="20"
-												rx="2.18"
-												ry="2.18"
-											></rect>
-											<line x1="7" y1="2" x2="7" y2="22"></line>
-											<line x1="17" y1="2" x2="17" y2="22"></line>
-											<line x1="2" y1="12" x2="22" y2="12"></line>
-											<line x1="2" y1="7" x2="7" y2="7"></line>
-											<line x1="2" y1="17" x2="7" y2="17"></line>
-											<line x1="17" y1="17" x2="22" y2="17"></line>
-											<line x1="17" y1="7" x2="22" y2="7"></line>
-										</svg>
-										Video
-									</Button>
-								</div>
-							</Card.Body>
-						</Card>
-						<br />
-						{this.state.posts
-							.slice(-4)
-							.reverse()
-							.map((post) => (
-								<Card key={post._id} className="my-2">
-									<Col xs={12} className="p-0 mb-4 section-outer">
-										<div
-											style={{ padding: "12px 12px 0px 12px" }}
-											className="d-flex"
-										>
-											<img
-												style={{ width: "48px", height: "48px" }}
-												src={post.user.image}
-												alt=""
-											></img>
+  render() {
+    return (
+      <Container>
+        <Row>
+          <Col className="col-3">
+            <Card>
+              <img
+                alt=""
+                src="https://static-exp1.licdn.com/sc/h/9e0ckeb27mzi70ne80f4hv7il"
+              ></img>
+              <img
+                className="d-inline-block"
+                src={this.props.user.image}
+                style={{
+                  borderRadius: '90px',
+                  top: '20px',
+                  left: '10px',
+                  position: 'absolute',
+                  border: '1px solid lightgrey',
+                }}
+                width="35px"
+                alt="profile"
+              />
+              <Card.Body>
+                <Card.Title>
+                  {this.props.user.name} {this.props.user.surname}
+                </Card.Title>
+                <Card.Text>{this.props.user.bio}</Card.Text>
+              </Card.Body>
+              <Card.Footer>
+                <small className="text-muted">Last updated 2 mins ago</small>
+              </Card.Footer>
+            </Card>
+            <DiscoverMore />
+          </Col>
+          <Col className="col-9">
+            <Card>
+              <Card.Body>
+                <Card.Text>
+                  <Row>
+                    <Col className="col-1">
+                      <img
+                        className="d-inline-block"
+                        src={this.props.user.image}
+                        style={{
+                          borderRadius: '90px',
+                          marginRight: '5px',
+                        }}
+                        width="50px"
+                        alt="profile"
+                      />
+                    </Col>
+                    <Col className="col-9">
+                      <div
+                        className="d-inline-block px-3 pb-3 align-items-center"
+                        style={{
+                          width: '100%',
+                        }}
+                      >
+                        <Form
+                          style={{
+                            width: '100%',
+                          }}
+                        >
+                          <FormControl
+                            style={{
+                              height: '48px',
+                              width: '100%',
+                              borderRadius: '35px',
+                            }}
+                            type="text"
+                            value={this.state.postInput}
+                            placeholder="Start a post"
+                            className="w-100 mr-sm-2"
+                            onChange={this.newPostValue}
+                          />
+                        </Form>
+                      </div>
+                    </Col>
+                  </Row>
+                </Card.Text>
+                <div
+                  style={{
+                    width: '80%',
+                    display: 'flex',
+                    justifyContent: 'space-evenly',
+                  }}
+                >
+                  <Button
+                    className="mx-2 bg-white btn-outline"
+                    variant="light"
+                    onClick={this.handleSubmit}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="#e7a33e"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <polygon points="14 2 18 6 7 17 3 17 3 13 14 2"></polygon>
+                      <line x1="3" y1="22" x2="21" y2="22"></line>
+                    </svg>
+                    Post
+                  </Button>
+                  <Button className="mx-2 bg-white" variant="light">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="#70b5f9"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <rect x="3" y="3" width="18" height="18" rx="2" />
+                      <circle cx="8.5" cy="8.5" r="1.5" />
+                      <path d="M20.4 14.5L16 10 4 20" />
+                    </svg>
+                    Photo
+                  </Button>
+                  <Button className="mx-2 bg-white" variant="light">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="#7fc15e"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <rect
+                        x="2"
+                        y="2"
+                        width="20"
+                        height="20"
+                        rx="2.18"
+                        ry="2.18"
+                      ></rect>
+                      <line x1="7" y1="2" x2="7" y2="22"></line>
+                      <line x1="17" y1="2" x2="17" y2="22"></line>
+                      <line x1="2" y1="12" x2="22" y2="12"></line>
+                      <line x1="2" y1="7" x2="7" y2="7"></line>
+                      <line x1="2" y1="17" x2="7" y2="17"></line>
+                      <line x1="17" y1="17" x2="22" y2="17"></line>
+                      <line x1="17" y1="7" x2="22" y2="7"></line>
+                    </svg>
+                    Video
+                  </Button>
+                </div>
+              </Card.Body>
+            </Card>
+            <br />
+            {this.state.posts
+              .slice(-4)
+              .reverse()
+              .map((post) => (
+                <Card key={post._id} className="my-2 postCard">
+                  <Col xs={12} className="p-0 mb-4 section-outer">
+                    <div
+                      style={{ padding: '12px 12px 0px 12px' }}
+                      className="d-flex"
+                    >
+                      <img
+                        style={{ width: '48px', height: '48px' }}
+                        src={post.user.image}
+                        alt=""
+                      ></img>
 
 											<div className="ms-2 d-flex flex-column">
 												<b className="ml-2">{post.user.name}</b>
@@ -282,28 +285,28 @@ export default class MakePost extends Component {
 											</div>
 										</div>
 
-										<div
-											style={{
-												display: "inline-block",
-												padding: "12px 12px 0px 12px",
-											}}
-										>
-											{post.text}
-										</div>
+                    <div
+                      style={{
+                        display: 'inline-block',
+                        padding: '12px 12px 0px 12px',
+                      }}
+                    >
+                      {post.text}
+                    </div>
 
-										<div style={{ objectFit: "contain" }}></div>
+                    <div style={{ objectFit: 'contain' }}></div>
 
-										<div style={{ padding: "12px 12px 0px 12px" }}>
-											<img
-												src="https://static-exp1.licdn.com/sc/h/d310t2g24pvdy4pt1jkedo4yb"
-												alt="LIKE"
-											></img>
-											<span className="text-muted"> 0 · 0 comments </span>
-										</div>
+                    <div style={{ padding: '12px 12px 0px 12px' }}>
+                      <img
+                        src="https://static-exp1.licdn.com/sc/h/d310t2g24pvdy4pt1jkedo4yb"
+                        alt="LIKE"
+                      ></img>
+                      <span className="text-muted"> 0 · 0 comments </span>
+                    </div>
 
-										<div style={{ padding: "0px 12px 0px 12px" }}>
-											<hr></hr>
-										</div>
+                    <div style={{ padding: '0px 12px 0px 12px' }}>
+                      <hr></hr>
+                    </div>
 
 										{/* interaction buttons  */}
 
