@@ -53,7 +53,7 @@ class Experiences extends Component {
 						</h5>
 					</Col>
 					<Col className="col-2">
-						<Example />
+						<ExperienceModal />
 					</Col>
 				</Row>
 				<br />
